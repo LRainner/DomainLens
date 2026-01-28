@@ -81,10 +81,6 @@ fn main() {
     let rule = DomainRule::new(domains);
     let build_elapsed = build_start.elapsed();
 
-    // 显式丢掉原始域名向量，避免它继续占内存，便于更干净地看 DomainRule 本身的成本
-    // （注意：这里只是为了测量，在实际业务中如果你还需要原始列表就不要 drop）
-    drop(rule);
-
     // 强制做一次 GC 样的刷新，让 OS 和 allocator 有机会回收
     // （不一定 100% 立刻反映完全真实的“极限最小值”，但能显著减小噪音）
     std::thread::sleep(std::time::Duration::from_millis(200));
