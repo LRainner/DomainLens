@@ -74,7 +74,10 @@ fn main() {
 
     // 第一次测：加载完原始数据后的基线
     let mem_after_load = current_memory_mib(&mut sys);
-    println!("Memory after loading domains:        {:.2} MiB", mem_after_load);
+    println!(
+        "Memory after loading domains:        {:.2} MiB",
+        mem_after_load
+    );
 
     // 构建 DomainRule，并在构建完后显式 drop 掉原始 Vec<String>
     let build_start = Instant::now();
@@ -86,11 +89,17 @@ fn main() {
     std::thread::sleep(std::time::Duration::from_millis(200));
     let mem_after_drop = current_memory_mib(&mut sys);
 
-    println!("Memory after building & dropping:   {:.2} MiB", mem_after_drop);
+    println!(
+        "Memory after building & dropping:   {:.2} MiB",
+        mem_after_drop
+    );
     println!(
         "Delta (peak approx. for {} rules): {:.2} MiB",
         n,
         mem_after_drop - mem_after_load
     );
-    println!("Build {} domains cost:               {:.2?}", n, build_elapsed);
+    println!(
+        "Build {} domains cost:               {:.2?}",
+        n, build_elapsed
+    );
 }

@@ -47,7 +47,6 @@ impl DomainRule {
     }
 }
 
-
 #[test]
 fn test_domain_rule() {
     let value = vec!["example.com".to_string(), "test.org".to_string()];
