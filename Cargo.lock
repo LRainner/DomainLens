@@ -252,12 +252,14 @@ dependencies = [
 name = "domainlens"
 version = "0.1.0"
 dependencies = [
+ "async-trait",
  "cedarwood",
  "criterion",
  "hickory-proto",
  "hickory-server",
  "sysinfo",
  "tokio",
+ "tokio-util",
 ]
 
 [[package]]
